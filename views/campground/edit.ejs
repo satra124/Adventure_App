@@ -1,0 +1,32 @@
+<% include ../partials/header %>
+
+<div class="container-fluid">
+    <header class="jumbotron">
+        <h1 style="text-align:center">Edit <%= campInfo.name %></h1>    
+    </header>
+    <div class="row">
+        <div style="width:25%; margin:0 auto;">
+            <form action="/campgrounds/<%= campInfo._id %>/?_method=PUT" method="POST">
+                <div class="form-group">
+                    <input class="form-control" type="text" value="<%= campInfo.name %>" name="campgrounds[name]">
+                </div>
+                <div class="form-group">
+                    <input class="form-control" type="url" value="<%= campInfo.url %>" name="campgrounds[image]">
+                </div>
+                <div class="form-group">
+                    <input class="form-control" type="text" value="<%= campInfo.description %>" name="campgrounds[description]">
+                </div>
+                <div class="form-group">
+                    <input class="form-control" type="number" value="<%= campInfo.price %>" name="campgrounds[price]" step="0.50" min="2">
+                </div>
+                <div class="form-group">
+                    <input type="submit" class="btn btn-primary btn-block">
+                </div>
+            </form>
+            <a href="/campgrounds">Go Back</a>
+        </div>
+    </div>
+</div>
+
+
+<% include ../partials/footer %>

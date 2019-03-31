@@ -1,0 +1,65 @@
+<% include ../partials/header %>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-3 mt-2">
+            <p class="lead">Camp Categories</p>
+            <div class="list-group">
+                <li class="list-group-item">Category 1</li>
+                <li class="list-group-item">Category 2</li>
+                <li class="list-group-item">Category 3</li>
+            </div>
+        <a class="btn btn-dark mt-2" href="/campgrounds">View Campgrounds</a>    
+        </div>
+        <div class="col-md-9 mt-2">
+            <div class="card">
+                <div class="card mx-2 my-2">
+                    <h1 class="card-header text-center">An overview of <%= campInfo.name %></h1>
+                    <div><em>Created by <%= campInfo.author.username %></em></div>
+                    <img class="card-img-top img-responsive" src="<%= campInfo.url %>">
+                    <div class="card-text mx-2 my-2">
+                        <%= campInfo.description %> 
+                    </div>
+                    <h6 class="text-right mx-2"><%= campInfo.price %> USD/Night</h6>
+                        <div class="row mx-2">
+                            <p class="mx-2">
+                                <a class="btn btn-warning active" href="/campgrounds/<%= campInfo._id %>/edit">Edit <%= campInfo.name %></a>
+                            </p>
+                            <form action="/campgrounds/<%= campInfo._id %>/?_method=DELETE" method="POST">
+                                <p class="mx-2">
+                                    <button class="btn btn-danger">Delete <%= campInfo.name %></button>
+                                </p>
+                            </form>
+                        </div>
+                </div>
+                <div class="mx-2 my-2 card">
+                    <% campInfo.comments.forEach(function(comment) { %>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <strong><%= comment.author.username %></strong>
+                        </div>
+                        <div class="col-md-6 text-right">
+                            2 days ago
+                        </div>        
+                        <ul><%= comment.text %></ul>
+                    </div>
+                    <div class="row mx-2">
+                        <p class="mx-2">
+                            <% if (comment.author.id.equals(currentUser._id)) { %>
+                                <a role="button" class="btn btn-warning btn-sm" href="/campgrounds/<%= campInfo._id %>/comments/<%= comment._id %>/edit">Edit Comment</a>
+                                <form action="/campgrounds/<%= campInfo._id %>/comments/<%= comment._id %>?_method=DELETE" method="POST">
+                                    <button type="button" class="btn btn-danger btn-sm">Delete Comment</button>
+                                </form>
+                            <% } %>
+                        </p>
+                    </div>
+                    <% }); %>
+                </div>
+                <div class="mx-4 mb-2">
+                    <a class="btn btn-xs btn-success" href="/campgrounds/<%= campInfo._id %>/comments">Post a review</a>    
+                </div>
+            </div>
+        </div>    
+    </div>
+</div>
+<% include ../partials/footer %>

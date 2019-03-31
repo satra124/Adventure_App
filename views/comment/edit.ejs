@@ -1,0 +1,16 @@
+<% include ../partials/header %>
+
+<div class="container-fluid">
+    <h1>Edit comments for <%= campInfo.name %></h1>
+
+    <form action="/campgrounds/<%= campInfo._id %>/comments/<%= comment._id %>?_method=PUT" method="POST">
+        <div class="form-group">
+            <input class="form-control" type="text" value="<%= comment.text %>" name="comment[text]">
+        </div>
+        <button class="btn btn-xl btn-success">Post Comment</button>
+    </form>
+
+</div>
+
+
+<% include ../partials/footer %>
