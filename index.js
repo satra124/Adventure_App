@@ -2,7 +2,9 @@ var express         = require("express"),
     app             = express(),
     flash           = require("connect-flash"),
     bodyParser      = require("body-parser"),
-    mongoose        = require("mongoose");
+    mongoose        = require("mongoose"),
+    os		= require("os");	
+
 
 
 // connect flash
@@ -74,6 +76,8 @@ app.use(authRoutes);
 
 
 // Node Js Server listen
-app.listen(process.env.PORT, process.env.IP, function() {
-   console.log("Server started on IP:" + process.env.IP + " and port:" + process.env.PORT); 
+var port = 3012;
+var host = os.hostname();
+app.listen(port, host, function() {
+   console.log("Server started on IP:" + port + " and port:" + host); 
 });
