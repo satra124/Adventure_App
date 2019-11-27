@@ -75,7 +75,7 @@ app.use(authRoutes);
 
 
 // Node Js Server listen
-var port = 80;
+var port = 443;
 var host = os.hostname();
 app.listen(port, host, function() {
    console.log("Server started on IP:" + host + " and port:" + port); 
