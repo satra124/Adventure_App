@@ -13,8 +13,8 @@ app.use(flash());
 app.use(bodyParser.urlencoded({extended: true}));
 
 // Connect to MongoDB and create a object along with schema
-// mongoose.connect("mongodb+srv://satra:LXcfXy1Hvv9XIyq0@cluster0-mzgbs.mongodb.net/test?retryWrites=true",{useNewUrlParser: true});
-mongoose.connect("mongodb://mongo:27017/campdb",{useNewUrlParser: true});
+mongoose.connect("mongodb+srv://satra:pT0TdGgWD88DIP1T@cluster0-mzgbs.mongodb.net/test?retryWrites=true&w=majority",{useNewUrlParser: true});
+// mongoose.connect("mongodb://mongo:27017/campdb",{useNewUrlParser: true});
 
 // To set the view engine as EJS
 app.set("view engine", "ejs");
@@ -75,8 +75,8 @@ app.use(authRoutes);
 
 
 // Node Js Server listen
-var port = 3012;
+var port = 80;
 var host = os.hostname();
 app.listen(port, host, function() {
-   console.log("Server started on IP:" + port + " and port:" + host); 
+   console.log("Server started on IP:" + host + " and port:" + port); 
 });
