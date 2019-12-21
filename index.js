@@ -13,7 +13,7 @@ app.use(flash());
 app.use(bodyParser.urlencoded({extended: true}));
 
 // Connect to MongoDB and create a object along with schema
-mongoose.connect("mongodb://mongo:27017/campdb",{useNewUrlParser: true});
+mongoose.connect("mongodb+srv://satra:qOjVsNhh9ztuZm1X@cluster0-mzgbs.mongodb.net/test?retryWrites=true&w=majority",{useNewUrlParser: true});
 
 // To set the view engine as EJS
 app.set("view engine", "ejs");
