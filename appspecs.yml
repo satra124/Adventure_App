@@ -1,0 +1,12 @@
+version: 0.0
+os: linux
+files:
+  - source: /
+    destination: /home/ec2-user/
+    overwrite: true
+file_exists_behavior: OVERWRITE
+branch_config:
+    main:
+        deploymentGroupName: ztd-deployment-group
+        deploymentGroupConfig:
+            serviceRoleArn: arn:aws:iam::338874085683:role/CodeDeployTestApplication
