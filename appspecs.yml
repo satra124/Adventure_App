@@ -9,4 +9,4 @@ branch_config:
     main:
         deploymentGroupName: ztd-deployment-group
         deploymentGroupConfig:
-            serviceRoleArn: arn:aws:iam::338874085683:role/CodeDeployTestApplication
+            serviceRoleArn: arn:aws:iam::XXXXXXX:role/CodeDeployTestApplication
